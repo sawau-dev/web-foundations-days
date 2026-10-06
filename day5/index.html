@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Directory | Day 5</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: #1f2937;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 2rem;
+        }
+
+        header p {
+            margin: 0;
+            color: #d1d5db;
+        }
+
+        main {
+            width: min(900px, 92%);
+            margin: 30px auto;
+        }
+
+        .controls {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        input:focus {
+            outline: 2px solid #2563eb;
+            border-color: #2563eb;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover:not(:disabled) {
+            background: #1d4ed8;
+        }
+
+        button:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        #status {
+            font-weight: bold;
+            margin: 18px 0;
+        }
+
+        #users-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 16px;
+        }
+
+        #users-list li {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        #users-list h2 {
+            margin: 0 0 10px;
+            font-size: 1.25rem;
+        }
+
+        #users-list p {
+            margin: 7px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            main {
+                width: 94%;
+            }
+        }
+    </style>
+
+    <script src="users.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>User Directory</h1>
+        <p>Day 5 — Fetching and filtering users with JavaScript</p>
+    </header>
+
+    <main>
+        <section class="controls">
+            <label for="filter-input">Filter users by name</label>
+
+            <input
+                type="text"
+                id="filter-input"
+                placeholder="Type a name to filter..."
+                autocomplete="off"
+            >
+
+            <button id="load-users" type="button">
+                Load Users
+            </button>
+        </section>
+
+        <p id="status" aria-live="polite">
+            Click "Load Users" to get the user list.
+        </p>
+
+        <ul id="users-list"></ul>
+    </main>
+
+    <footer>
+        <p>Web Foundations — Day 5</p>
+    </footer>
+</body>
+</html>
